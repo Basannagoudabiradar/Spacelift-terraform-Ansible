@@ -1,0 +1,17 @@
+---
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
+
+- name: Enable and start Apache
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Create index.html
+  copy:
+    dest: /var/www/html/index.html
+    content: "Apache has started"
